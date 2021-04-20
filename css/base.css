@@ -1,0 +1,129 @@
+html {
+    overflow: auto;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1);
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
+
+body>div {
+    position: fixed;
+    z-index: 1000;
+}
+
+body .controls {
+    display: block;
+    width: 300px;
+    position: ;
+}
+
+body .controls>* {
+    display: block;
+    border: solid 1px #FFF;
+    margin: 16px;
+    width: 100%;
+}
+
+body .controls>*>* {
+    padding: 8px;
+    text-align: center;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+}
+
+body .controls>*>*:first-child {
+    border-bottom: solid 1px #FFF;
+}
+
+body .controls>*>*:last-child {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+body .controls input {
+    width: 30px
+}
+
+body .btns {
+    display: block;
+    width: 300px;
+    transform: scale(1);
+    border: solid 1px #FFF;
+    padding: 16px;
+    box-sizing: border-box;
+    margin: 16px;
+}
+
+body .btns>* {
+    display: block;
+}
+
+body .btns button {
+    width: 90px;
+    height: 90px;
+}
+
+body .btns>*:first-child,
+body .btns>*:last-child {
+    text-align: center;
+}
+
+body .btns>*:nth-child(2)>button:first-child {
+    float: left;
+}
+
+body .btns>*:nth-child(2)>button:first-child {
+    float: right;
+}
+
+body .informations {
+    width: 500px;
+    position: absolute;
+    left: 340px;
+}
+
+body .informations>* {
+    border: solid 1px white;
+    margin: 16px;
+    width: 100%;
+}
+
+body .informations>*>* {
+    padding: 10px;
+}
+
+body .informations>*>*:first-child {
+    border-bottom: solid 1px #FFF;
+}
+
+body .informations>*>*:last-child {
+    display: grid;
+}
+
+body .raiz {
+    width: 230px;
+    position: absolute;
+    left: 35px;
+    top: 242px;
+}
+
+#audio {
+    width: 230px;
+    position: absolute;
+    left: 1280px;
+    top: 10px;
+}
+
+
+#mensagem{
+    position: absolute;
+    left: 1200px;
+    top: 10px;
+
+}
