@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
     'use stric'
     var control = { status: false, x: -194, y: 154, z: 644 }
     var scene, camera, renderer, texture, geometry, material, cube, terra, moon;
@@ -11,6 +11,7 @@
     var distanceMoon = { x: 0, y: 0, z: 0 }
     var distanceTerra = { x: 0, y: 0, z: 0 }
     var distanceCube = { x: 0, y: 0, z: 0 }
+    var distancecentroL = { x: 0, y: 0, z: 0 }
     var distancia
     var cont = 1
     
@@ -115,7 +116,7 @@
         return centroL
     }
 
-    function startCentroL(centroL, x = 0, y = 384, z = 0) {
+    function startCentroL(centroL, x = 115, y = 184, z = 0) {
         centroL.position.x = x
         centroL.position.y = y
         centroL.position.z = z
@@ -147,12 +148,11 @@
         geometry = new THREE.SphereGeometry(x, y, z);
         material = new THREE.MeshBasicMaterial({ map: texture })
         moon = new THREE.Mesh(geometry, material);
-        //moon.add(pivotPointL);
         scene.add(moon)
         return moon
     }
 
-    function startMoon(moon, x = 0, y = 384, z = 0) {
+    function startMoon(moon, x = 0, y = 0, z = 0) {
         moon.position.x = x
         moon.position.y = y
         moon.position.z = z
@@ -295,9 +295,9 @@
 
     function upadteDisplay() {
 
-        document.getElementById('luaX').value = distanceMoon.x
-        document.getElementById('luaY').value = distanceMoon.y
-        document.getElementById('luaZ').value = distanceMoon.z
+        document.getElementById('luaX').value = distancecentroL.x
+        document.getElementById('luaY').value = distancecentroL.y
+        document.getElementById('luaZ').value = distancecentroL.z
 
         document.getElementById('terraX').value = distanceTerra.x
         document.getElementById('terraY').value = distanceTerra.y
@@ -307,10 +307,11 @@
         document.getElementById('cuboY').value = distanceCube.y
         document.getElementById('cuboZ').value = distanceCube.z
 
-        document.getElementById('distanceX').value = distanceMoon.x - distanceCube.x
-        document.getElementById('distanceY').value = distanceMoon.y - distanceCube.y
-        document.getElementById('distanceZ').value = distanceMoon.z - distanceCube.z
-        distancia = Math.pow(distanceMoon.x - distanceCube.x,2) + Math.pow(distanceMoon.y - distanceCube.y,2) + Math.pow(distanceMoon.z - distanceCube.z,2)
+        document.getElementById('distanceX').value = distancecentroL.x - distanceCube.x
+        document.getElementById('distanceY').value = distancecentroL.y - distanceCube.y
+        document.getElementById('distanceZ').value = distancecentroL.z - distanceCube.z
+         
+        distancia = Math.pow(distancecentroL.x - distanceCube.x,2) + Math.pow(distancecentroL.y - distanceCube.y,2) + Math.pow(distancecentroL.z - distanceCube.z,2)
         document.getElementById('distancia').value = Math.sqrt(distancia)
        
        
@@ -342,11 +343,11 @@
         //seprecisar girar nas outras coordenadas
         //pivotPoint.rotation.x += 0.907;
         pivotPoint.rotation.y += 0.002;
-        pivotPointL.rotation.z += 0.01;
+        //pivotPointL.rotation.z += 0.01;
         //pivotPoint.rotation.z += 0.907;
         
         pivotPoint.add(terra)
-        pivotPoint.add(moon)
+        pivotPointL.add(moon)
 
    
     }
