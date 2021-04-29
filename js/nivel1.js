@@ -14,7 +14,8 @@
     var distancecentroL = { x: 0, y: 0, z: 0 }
     var distancia
     var cont = 1
-    
+    var angle = 0
+      
     var pivotPoint,pivotPointL;
     pivotPoint = new THREE.Object3D();
     pivotPointL = new THREE.Object3D();
@@ -74,11 +75,13 @@
         geometry = new THREE.CubeGeometry(x, y, z);
         material = new THREE.MeshBasicMaterial({ map: texture });
         cube = new THREE.Mesh(geometry, material);
+        cube.rotation.x = angle
+        cube.rotation.y = angle    
         scene.add(cube);
         return cube
     }
 
-    function startCube(cube, x = 0, y = 104, z = 0) {
+    function startCube(cube, x = 18, y = 104, z = 50) {
         cube.position.x = x
         cube.position.y = y
         cube.position.z = z
@@ -116,7 +119,7 @@
         return centroL
     }
 
-    function startCentroL(centroL, x = 115, y = 184, z = 0) {
+    function startCentroL(centroL, x = 270, y = 384, z = 0) {
         centroL.position.x = x
         centroL.position.y = y
         centroL.position.z = z
@@ -343,20 +346,18 @@
         //seprecisar girar nas outras coordenadas
         //pivotPoint.rotation.x += 0.907;
         pivotPoint.rotation.y += 0.002;
-        //pivotPointL.rotation.z += 0.01;
+        pivotPointL.rotation.y += 0.01;
         //pivotPoint.rotation.z += 0.907;
-        
         pivotPoint.add(terra)
         pivotPointL.add(moon)
-
    
     }
 
     function win() {
-        console.log("posição cubo",cont)
         if (Math.sqrt(distancia) == 28 && cont==1) {
+            cube.position.y = 0
+            cube.position.x = 20
             pivotPointL.add(cube)
-            cube.position.y = 20
             mensagem.style.display="block" 
         }
         else if(cont>1) {
