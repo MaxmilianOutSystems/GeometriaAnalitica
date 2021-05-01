@@ -14,7 +14,7 @@
     var distancecentroL = { x: 0, y: 0, z: 0 }
     var distancia
     var cont = 1
-    var angle = 0
+    var angle = 0.3
       
     var pivotPoint,pivotPointL;
     pivotPoint = new THREE.Object3D();
@@ -81,7 +81,7 @@
         return cube
     }
 
-    function startCube(cube, x = 18, y = 104, z = 50) {
+    function startCube(cube, x = 18, y = 106, z = 0) {
         cube.position.x = x
         cube.position.y = y
         cube.position.z = z
@@ -119,7 +119,7 @@
         return centroL
     }
 
-    function startCentroL(centroL, x = 270, y = 384, z = 0) {
+    function startCentroL(centroL, x = 270, y = 360, z = 0) {
         centroL.position.x = x
         centroL.position.y = y
         centroL.position.z = z
