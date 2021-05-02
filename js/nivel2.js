@@ -81,7 +81,7 @@
         return cube
     }
 
-    function startCube(cube, x = 18, y = 106, z = 0) {
+    function startCube(cube, x = 18, y = 106, z = 20) {
         cube.position.x = x
         cube.position.y = y
         cube.position.z = z
@@ -119,7 +119,7 @@
         return centroL
     }
 
-    function startCentroL(centroL, x = 270, y = 360, z = 0) {
+    function startCentroL(centroL, x = -120, y = 180, z = 500) {
         centroL.position.x = x
         centroL.position.y = y
         centroL.position.z = z
@@ -356,7 +356,8 @@
     function win() {
         if (Math.sqrt(distancia) == 28 && cont==1) {
             cube.position.y = 0
-            cube.position.x = 20
+            cube.position.x = 0
+            cube.position.z = 50
             pivotPointL.add(cube)
             mensagem.style.display="block" 
         }
