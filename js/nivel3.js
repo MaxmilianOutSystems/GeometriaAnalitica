@@ -1,6 +1,6 @@
 (() => {
     'use stric'
-    var control = { status: false, x: -194, y: 154, z: 644 }
+    var control = { status: false, x: -250, y: 50, z: 644 }
     var scene, camera, renderer, texture, geometry, material, cube, terra, moon;
 
     var key = { event: " ", status: false }
@@ -8,16 +8,19 @@
 
     var axis;
 
-    var distanceMoon = { x: 0, y: 0, z: 0 }
+    //var distanceMoon = { x: 0, y: 0, z: 0 }
     var distanceTerra = { x: 0, y: 0, z: 0 }
     var distanceCube = { x: 0, y: 0, z: 0 }
-    var distancecentroL = { x: 0, y: 0, z: 0 }
+    var distancecentroT= {x:0, y: 0, z: 0}
+    //var distancecentroL = { x: 0, y: 0, z: 0 }
     var distancia
     var cont = 1
-    var angle = 0.3
-      
-    var pivotPoint,pivotPointL;
+    var angle = 0.3  
+    var raio
+
+    var pivotPoint,pivotPoint2, pivotPointL;
     pivotPoint = new THREE.Object3D();
+    pivotPoint2 = new THREE.Object3D();
     pivotPointL = new THREE.Object3D();
     var mensagem = document.getElementById("mensagem");
     window.onload = BuilderGamer
@@ -39,6 +42,7 @@
     document.getElementById('cuboZ').addEventListener('click', movZ);
 
     document.getElementById('mensagem').addEventListener('click', Next);
+    document.getElementById('raio').addEventListener('click', Next);
     
     //var audio1 = document.getElementById('audio1')
     //var audio2 = document.getElementById('audio2')
@@ -48,10 +52,11 @@
         SceneBuild()
         startCube(CubeMaker())
         addAxisInScene()
-        startMoon(MoonMaker())
+        //startMoon(MoonMaker())
         startTerra(Terra())
         startCentroT(CentroTerra())
-        startCentroL(CentroLua())
+        startCentroT2(CentroTerra2())
+        //startCentroL(CentroLua())
         
     }
 
@@ -81,7 +86,7 @@
         return cube
     }
 
-    function startCube(cube, x = 18, y = 106, z = 20) {
+    function startCube(cube, x = 50, y = 180, z = 200) {
         cube.position.x = x
         cube.position.y = y
         cube.position.z = z
@@ -100,7 +105,7 @@
         return centroT
     }
 
-    function startCentroT(centroT, x = 0, y = 0, z = 0) {
+    function startCentroT(centroT, x = 20, y = 10, z = 30) {
         centroT.position.x = x
         centroT.position.y = y
         centroT.position.z = z
@@ -109,7 +114,26 @@
 
     }
 
-    function CentroLua(x = 5, y = 3, z = 3, color = 'gold') {
+    function CentroTerra2(x = 50, y = 10, z = 10, color = 'gold') {
+        texture = new THREE.TextureLoader().load('images/satelite.jpg')
+        geometry = new THREE.CubeGeometry(x, y, z);
+        material = new THREE.MeshBasicMaterial({ map: texture });
+        centroT2 = new THREE.Mesh(geometry, material);
+        centroT2.add(pivotPoint2)
+        scene.add(centroT2);
+        return centroT2
+    }
+
+    function startCentroT2(centroT2, x = 0, y = 0, z = 0) {
+        centroT2.position.x = x
+        centroT2.position.y = y
+        centroT2.position.z = z
+
+        distancecentroT2 = { x: centroT2.position.x, y: centroT2.position.y, z: centroT2.position.z }
+
+    }
+
+   /* function CentroLua(x = 5, y = 3, z = 3, color = 'gold') {
         texture = new THREE.TextureLoader().load('images/satelite.jpg')
         geometry = new THREE.CubeGeometry(x, y, z);
         material = new THREE.MeshBasicMaterial({ map: texture });
@@ -117,16 +141,16 @@
         centroL.add(pivotPointL)
         scene.add(centroL);
         return centroL
-    }
+    }*/
 
-    function startCentroL(centroL, x = -120, y = 180, z = 500) {
+    /*function startCentroL(centroL, x = -120, y = 180, z = 500) {
         centroL.position.x = x
         centroL.position.y = y
         centroL.position.z = z
 
         distancecentroL = { x: centroL.position.x, y: centroL.position.y, z: centroL.position.z }
 
-    }
+    }*/
 
     function Terra(x = 104, y = 103, z = 103, color = 'red') {
         texture = new THREE.TextureLoader().load('images/Terra.jpg')
@@ -138,7 +162,7 @@
         return terra
     }
 
-    function startTerra(terra, x = 0, y = 0, z = 0) {
+    function startTerra(terra, x = 20, y = 30, z = 50) {
         terra.position.x = x
         terra.position.y = y
         terra.position.z = z
@@ -298,23 +322,19 @@
 
     function upadteDisplay() {
 
-        document.getElementById('luaX').value = distancecentroL.x
-        document.getElementById('luaY').value = distancecentroL.y
-        document.getElementById('luaZ').value = distancecentroL.z
-
-        document.getElementById('terraX').value = distanceTerra.x
-        document.getElementById('terraY').value = distanceTerra.y
-        document.getElementById('terraZ').value = distanceTerra.z
+        document.getElementById('terraX').value = distancecentroT.x
+        document.getElementById('terraY').value = distancecentroT.y
+        document.getElementById('terraZ').value = distancecentroT.z
 
         document.getElementById('cuboX').value = distanceCube.x
         document.getElementById('cuboY').value = distanceCube.y
         document.getElementById('cuboZ').value = distanceCube.z
 
-        document.getElementById('distanceX').value = distancecentroL.x - distanceCube.x
-        document.getElementById('distanceY').value = distancecentroL.y - distanceCube.y
-        document.getElementById('distanceZ').value = distancecentroL.z - distanceCube.z
+        document.getElementById('distanceX').value = distancecentroT.x - distanceCube.x
+        document.getElementById('distanceY').value = distancecentroT.y - distanceCube.y
+        document.getElementById('distanceZ').value = distancecentroT.z - distanceCube.z
          
-        distancia = Math.pow(distancecentroL.x - distanceCube.x,2) + Math.pow(distancecentroL.y - distanceCube.y,2) + Math.pow(distancecentroL.z - distanceCube.z,2)
+        distancia = Math.pow(distancecentroT.x - distanceCube.x,2) + Math.pow(distancecentroT.y - distanceCube.y,2) + Math.pow(distancecentroT.z - distanceCube.z,2)
         document.getElementById('distancia').value = Math.sqrt(distancia)
        
        
@@ -346,19 +366,20 @@
         //seprecisar girar nas outras coordenadas
         //pivotPoint.rotation.x += 0.907;
         pivotPoint.rotation.y += 0.002;
-        pivotPointL.rotation.y += 0.01;
+        pivotPoint2.rotation.y += 0.011;
+        //pivotPointL.rotation.y += 0.01;
         //pivotPoint.rotation.z += 0.907;
         pivotPoint.add(terra)
-        pivotPointL.add(moon)
+        //pivotPointL.add(moon)
    
     }
 
     function win() {
-        if (Math.sqrt(distancia) == 28 && cont==1) {
+        if (Math.sqrt(distancia) == 104 && cont==1) {
             cube.position.y = 0
             cube.position.x = 0
-            cube.position.z = 25
-            pivotPointL.add(cube)
+            cube.position.z = 120
+            pivotPoint2.add(cube)
             mensagem.style.display="block" 
         }
         else if(cont>1) {
