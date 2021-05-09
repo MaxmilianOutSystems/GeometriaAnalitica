@@ -142,3 +142,11 @@ body .raiz {
     top: 730px;
     font-style: italic;
 }
+
+#Atualizacao{
+    position: absolute;
+    left: 1050px;
+    top: 730px;
+    font-style: italic;
+    width: 300px;
+}
