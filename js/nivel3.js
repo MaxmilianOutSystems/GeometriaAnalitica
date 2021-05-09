@@ -28,14 +28,14 @@
     document.addEventListener("keydown", CaptureKeyDown)
     document.addEventListener("keyup", CaptureKeyUp)
 
-    document.getElementById('btn1').addEventListener('touchstart', DownOn);
+    /*document.getElementById('btn1').addEventListener('touchstart', DownOn);
     document.getElementById('btn1').addEventListener('touchend', DownOff);
     document.getElementById('btn2').addEventListener('touchstart', LeftON);
     document.getElementById('btn2').addEventListener('touchend', LeftOff);
     document.getElementById('btn3').addEventListener('touchstart', RighON);
     document.getElementById('btn3').addEventListener('touchend', RighOff);
     document.getElementById('btn4').addEventListener('touchstart', UpON);
-    document.getElementById('btn4').addEventListener('touchend', UpOff);
+    document.getElementById('btn4').addEventListener('touchend', UpOff); */
 
     document.getElementById('cuboX').addEventListener('click', movX);
     document.getElementById('cuboY').addEventListener('click', movY);
@@ -105,7 +105,7 @@
         return centroT
     }
 
-    function startCentroT(centroT, x = 20, y = 10, z = 30) {
+    function startCentroT(centroT, x = 0, y = 0, z = 0) {
         centroT.position.x = x
         centroT.position.y = y
         centroT.position.z = z
@@ -375,7 +375,7 @@
     }
 
     function win() {
-        if (Math.sqrt(distancia) == 104 && cont==1) {
+        if (Math.sqrt(distancia) == 130 && cont==1) {
             cube.position.y = 0
             cube.position.x = 0
             cube.position.z = 120

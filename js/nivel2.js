@@ -25,14 +25,14 @@
     document.addEventListener("keydown", CaptureKeyDown)
     document.addEventListener("keyup", CaptureKeyUp)
 
-    document.getElementById('btn1').addEventListener('touchstart', DownOn);
+    /*document.getElementById('btn1').addEventListener('touchstart', DownOn);
     document.getElementById('btn1').addEventListener('touchend', DownOff);
     document.getElementById('btn2').addEventListener('touchstart', LeftON);
     document.getElementById('btn2').addEventListener('touchend', LeftOff);
     document.getElementById('btn3').addEventListener('touchstart', RighON);
     document.getElementById('btn3').addEventListener('touchend', RighOff);
     document.getElementById('btn4').addEventListener('touchstart', UpON);
-    document.getElementById('btn4').addEventListener('touchend', UpOff);
+    document.getElementById('btn4').addEventListener('touchend', UpOff);*/
 
     document.getElementById('cuboX').addEventListener('click', movX);
     document.getElementById('cuboY').addEventListener('click', movY);
