@@ -130,7 +130,7 @@ body .raiz {
 
 #Desenvolvido{
     position: absolute;
-    left: 0px;
+    left: -350px;
     top: 700px;
     font-size: 20px;
     font-style: oblique;
@@ -138,7 +138,7 @@ body .raiz {
 
 #Colaboracao{
     position: absolute;
-    left: 0px;
+    left: -350px;
     top: 730px;
     font-style: italic;
 }
