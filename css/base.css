@@ -150,3 +150,11 @@ body .raiz {
     font-style: italic;
     width: 300px;
 }
+
+#raiz{
+    position: absolute;
+    left: 277px;
+    top: 295px;
+    font-style: italic;
+    width: 220px;
+}
