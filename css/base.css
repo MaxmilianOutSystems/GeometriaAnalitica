@@ -14,12 +14,14 @@ body {
 body>div {
     position: fixed;
     z-index: 1000;
+    
 }
 
 body .controls {
     display: block;
     width: 300px;
-    position: ;
+    position: absolute;
+    top: 180px;
 }
 
 body .controls>* {
@@ -27,6 +29,8 @@ body .controls>* {
     border: solid 1px #FFF;
     margin: 16px;
     width: 100%;
+    top: 200px;
+    
 }
 
 body .controls>*>* {
@@ -35,19 +39,24 @@ body .controls>*>* {
     vertical-align: top;
     align-items: center;
     justify-content: center;
+    
 }
 
 body .controls>*>*:first-child {
     border-bottom: solid 1px #FFF;
+    
 }
 
 body .controls>*>*:last-child {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    top: 500px;
+   
 }
 
 body .controls input {
     width: 30px
+    
 }
 
 body .btns {
@@ -86,24 +95,29 @@ body .informations {
     width: 500px;
     position: absolute;
     left: 340px;
+    top: 180px;
 }
 
 body .informations>* {
     border: solid 1px white;
     margin: 16px;
     width: 100%;
+    
 }
 
 body .informations>*>* {
     padding: 10px;
+    
 }
 
 body .informations>*>*:first-child {
     border-bottom: solid 1px #FFF;
+    
 }
 
 body .informations>*>*:last-child {
     display: grid;
+   
 }
 
 body .raiz {
@@ -130,25 +144,27 @@ body .raiz {
 
 #Desenvolvido{
     position: absolute;
-    left: -330px;
-    top: 700px;
+    left: -120px;
+    top: -180px;
     font-size: 20px;
-    font-style: oblique;
+  
 }
 
 #Colaboracao{
     position: absolute;
     left: -330px;
-    top: 730px;
+    top: 550px;
     font-style: italic;
+    
 }
 
 #Atualizacao{
     position: absolute;
     left: 1070px;
-    top: 730px;
+    top: 550px;
     font-style: italic;
     width: 300px;
+   
 }
 
 #raiz{
@@ -157,4 +173,50 @@ body .raiz {
     top: 295px;
     font-style: italic;
     width: 220px;
+   
 }
+
+
+
+
+
+
+
+
+
+body .apresentacao {
+    display: block;
+    width: 0px;
+    position: absolute;
+    top: 0px;
+}
+
+body .apresentacao>* {
+    display: block;
+    border: solid 1px #FFF;
+    margin: 16px;
+    width: 840px;
+    top: 0px;
+    
+}
+
+body .apresentacao>*>* {
+    padding: 8px;
+    text-align: center;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+body .apresentacao>*>*:first-child {
+    border-bottom: solid 1px #FFF;
+    
+}
+
+body .apresentacao>*>*:last-child {
+    display: grid;
+    top: 0px;
+   
+}
+

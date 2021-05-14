@@ -41,7 +41,7 @@
     document.getElementById('cuboY').addEventListener('click', movY);
     document.getElementById('cuboZ').addEventListener('click', movZ);
 
-    document.getElementById('mensagem').addEventListener('click', Next);
+    //document.getElementById('mensagem').addEventListener('click', Next);
     document.getElementById('raio').addEventListener('click', Next);
     
     //var audio1 = document.getElementById('audio1')
